@@ -6,6 +6,7 @@ package simple;
 message SimpleRequest {
   string name = 1;
   int64 number = 2;
+  bytes img = 3;
 }
 
 // response

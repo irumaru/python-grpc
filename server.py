@@ -3,6 +3,8 @@ import time
 import simple_pb2
 import simple_pb2_grpc
 from concurrent import futures
+from io import BytesIO
+from PIL import Image
 
 class SimpleServiceServicer(simple_pb2_grpc.SimpleServiceServicer):
   def __init__(self):
@@ -10,6 +12,13 @@ class SimpleServiceServicer(simple_pb2_grpc.SimpleServiceServicer):
 
   def SimpleSend(self, request, context):
     print(f"Received request: name={request.name}, number={request.number}")
+
+    buf = BytesIO(request.img)
+    buf.seek(0)
+    img_obj = Image.open(buf)
+    img_obj.save("plot.png")
+    img_obj.close()
+    buf.close()
 
     return simple_pb2.SimpleResponse(
       message=f"Hello {request.name}, you sent me {request.number}!"
