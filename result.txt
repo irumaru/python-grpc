@@ -1,0 +1,11 @@
+vscode ➜ /workspaces/python-grpc $ python server.py 
+/home/vscode/.local/lib/python3.12/site-packages/google/protobuf/runtime_version.py:112: UserWarning: Protobuf gencode version 5.27.2 is older than the runtime version 5.28.2 at simple.proto. Please avoid checked-in Protobuf gencode that can be obsolete.
+  warnings.warn(
+Server start.
+Received request: name=Iona, number=401
+
+
+vscode ➜ /workspaces/python-grpc $ python client.py 
+/home/vscode/.local/lib/python3.12/site-packages/google/protobuf/runtime_version.py:112: UserWarning: Protobuf gencode version 5.27.2 is older than the runtime version 5.28.2 at simple.proto. Please avoid checked-in Protobuf gencode that can be obsolete.
+  warnings.warn(
+Received response: Hello Iona, you sent me 401!

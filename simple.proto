@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package simple;
+
+// request
+message SimpleRequest {
+  string name = 1;
+  int64 number = 2;
+}
+
+// response
+message SimpleResponse {
+  string message = 1;
+}
+
+// interface
+service SimpleService {
+  rpc SimpleSend (SimpleRequest) returns (SimpleResponse) {}
+}
